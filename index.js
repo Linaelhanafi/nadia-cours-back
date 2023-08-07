@@ -30,6 +30,9 @@ const transporter = nodemailer.createTransport({
 app.use('/Course', require('./routes/Courses'))
 app.use('/User', require('./routes/User'))
 
+app.get('/', (req, res) => {
+    res.send('Hello from nadia-cours-back')
+})
 
 app.post('/sendEmail', async (req, res) => {
     try {
