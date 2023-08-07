@@ -6,7 +6,8 @@ const router = express.Router()
 
 router.post('/register', async (req, res) => {
     try {
-        const user = new User(req.body)
+        const { email, password, role } = req.body
+        const user = new User({ email, password, role })
         await user.save()
         res.status(201).send({ message: 'User registered successfully' })
     } catch (error) {
@@ -24,7 +25,7 @@ router.post('/login', async (req, res) => {
         }
 
         const token = jwt.sign({ _id: user._id }, 'SECRET_KEY', { expiresIn: '1h' });
-        res.send({ token });
+        res.send({ token, role: user.role });
     } catch (error) {
         console.log(error)
         res.status(400).send(error);

@@ -12,7 +12,9 @@ connectDb()
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-app.use(cors());
+
+app.use(cors({ origin: 'www.nadiacours.com' }));
+
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",

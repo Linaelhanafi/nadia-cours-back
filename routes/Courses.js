@@ -89,6 +89,21 @@ router.get('/getCourse/:id', (req, res) => {
     } catch (e) {
         console.log(e)
     }
+})
+
+router.delete('/deleteCourse/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedCourse = await Course.findByIdAndDelete(id);
+
+        if (!deletedCourse) {
+            return res.status(404).json({ message: "Course not found" });
+        }
+
+        res.status(200).json({ message: "Course deleted successfully", deletedCourse });
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
 });
 
 // router.get('/getCourse/:filename', async (req, res) => {
@@ -125,5 +140,6 @@ router.get('/getCourse/:id', (req, res) => {
 //         res.status(500).json({ e })
 //     }
 // });
-module.exports = router
 
+
+module.exports = router
