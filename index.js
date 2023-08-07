@@ -51,7 +51,7 @@ app.post('/sendEmail', async (req, res) => {
         console.log(error)
     }
 })
-
-app.listen(process.env.PORT, () => {
+const port = process.env.PORT || 3000
+app.listen(, () => {
     console.log(`APP RUNNING ON PORT ${process.env.PORT}`)
 })
