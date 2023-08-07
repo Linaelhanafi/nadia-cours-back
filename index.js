@@ -54,7 +54,7 @@ app.post('/sendEmail', async (req, res) => {
         const { nom, prenom, filiere, email, message } = req.body
         const info = await transporter.sendMail({
             from: email, // sender address
-            to: "walidelmoumen2002@gmail.com", // list of receivers
+            to: "n.elouesdadi@ump.ac.ma", // list of receivers
             subject: `${nom} ${prenom}`,  // Subject line
             text: message, // plain text body
         });
