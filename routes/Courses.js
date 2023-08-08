@@ -106,39 +106,6 @@ router.delete('/deleteCourse/:id', async (req, res) => {
     }
 });
 
-// router.get('/getCourse/:filename', async (req, res) => {
-//     try {
-//         const filename = req.params.filename;
-//         let bucket;
-//         // try {
-//         //     // Create a new GridFSBucket instance
-//         //     bucket = new GridFSBucket(mongoose.connection.db, {
-//         //         bucketName: 'uploads' // same as the bucket name used when uploading files
-//         //     });
-//         // } catch (error) {
-//         //     return res.status(500).send('Error initializing GridFSBucket');
-//         // }
 
-//         // Check if file exists
-//         const files = await bucket.find({ filename }).toArray();
-//         if (!files || files.length === 0) {
-//             return res.status(404).send('No file exists');
-//         }
-
-//         // If file exists, create read stream
-//         const downloadStream = bucket.openDownloadStreamByName(filename);
-
-//         downloadStream.on('error', (err) => {
-//             res.sendStatus(500).send(err);
-//         });
-
-//         downloadStream.on('end', () => {
-//             res.end();
-//         });
-//     } catch (e) {
-//         console.log(e)
-//         res.status(500).json({ e })
-//     }
-// });
 
 module.exports = router

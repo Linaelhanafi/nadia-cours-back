@@ -13,6 +13,9 @@ app.use(express.json())
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
+// app.use(cors())
+
+
 const allowedOrigins = ['https://www.nadiacours.com', 'https://nadiacours.com'];
 
 app.use(cors({
